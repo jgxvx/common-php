@@ -1,0 +1,30 @@
+{
+  "name": "jgxvx/common-php",
+  "description": "Common PHP functionality. Framework agnostic. No dependencies.",
+  "keywords": ["library", "common"],
+  "homepage": "https://github.com/jgxvx/common-php",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jürg Gutknecht",
+      "homepage": "http://juerggutknecht.ch"
+    }
+  ],
+  "require": {
+    "php": "^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Jgxvx\\Common\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Jgxvx\\Common\\": "tests"
+    }
+  }
+}
