@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="jgxvx/common-php" default="build" basedir=".">
+    <description>Build file for Jenkins CI</description>
+
+    <target name="build" depends="pre-build,code-quality,testing" />
+
+
+    <!-- /////////////////////////////////////////////////////////////////////// 
+    //// PRE BUILD
+    //////////////////////////////////////////////////////////////////////// -->
+
+    <target name="pre-build" depends="setup,install">
+
+    <target name="setup" depends="composer-self-update" />
+
+    <target name="composer-self-update" description="Composer self-update">
+        <exec executable="composer" failonerror="true">
+            <arg value="self-update" />
+        </exec>
+    </target>
+
+    <target name="install" depends="composer-install"/>
+
+    <target name="composer-install" description="Installing project dependencies">
+        <exec executable="composer">
+            <arg value="install" />
+            <arg value="--prefer-dist" />
+        </exec>
+    </target>
+
+
+    <!-- /////////////////////////////////////////////////////////////////////// 
+    //// QA
+    //////////////////////////////////////////////////////////////////////// -->
+
+    <target name="code-quality" depends="lint" />
+
+    <target name="lint" description="Performing PHP syntax check">
+        <exec executable="php" failonerror="true">
+            <arg value="-l">
+            <arg path="${basedir}/src">
+        </exec>
+    </target>
+
+
+    <!-- /////////////////////////////////////////////////////////////////////// 
+    //// TESTING
+    //////////////////////////////////////////////////////////////////////// -->
+
+    <target name="testing" depends="unit-tests">
+
+    <target name="unit-tests" description="Running unit tests with PHPUnit">
+        <exec executable="vendor/bin/phpunit">
+            <arg value="--configuration=${basedir}/phpunit.xml">
+            <arg value="--log-junit=${basedir}/build/junit.xml">
+            <arg value="--coverage-clover=${basedir}/build/coverage.clover">
+        </exec>
+    </target>
+
+    <!-- <target name="functional-tests"> -->
+</project>
