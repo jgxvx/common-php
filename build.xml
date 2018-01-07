@@ -10,7 +10,7 @@
     //// PRE BUILD
     //////////////////////////////////////////////////////////////////////// -->
 
-    <target name="pre-build" depends="setup,install">
+    <target name="pre-build" depends="setup,install" />
 
     <target name="setup" depends="composer-self-update" />
 
@@ -38,8 +38,8 @@
 
     <target name="lint" description="Performing PHP syntax check">
         <exec executable="php" failonerror="true">
-            <arg value="-l">
-            <arg path="${basedir}/src">
+            <arg value="-l" />
+            <arg path="${basedir}/src" />
         </exec>
     </target>
 
@@ -52,9 +52,9 @@
 
     <target name="unit-tests" description="Running unit tests with PHPUnit">
         <exec executable="vendor/bin/phpunit">
-            <arg value="--configuration=${basedir}/phpunit.xml">
-            <arg value="--log-junit=${basedir}/build/junit.xml">
-            <arg value="--coverage-clover=${basedir}/build/coverage.clover">
+            <arg value="--configuration=${basedir}/phpunit.xml" />
+            <arg value="--log-junit=${basedir}/build/junit.xml" />
+            <arg value="--coverage-clover=${basedir}/build/coverage.clover" />
         </exec>
     </target>
 
