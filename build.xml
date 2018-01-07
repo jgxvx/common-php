@@ -20,7 +20,7 @@
         </exec>
     </target>
 
-    <target name="install" depends="composer-install"/>
+    <target name="install" depends="composer-install" />
 
     <target name="composer-install" description="Installing project dependencies">
         <exec executable="composer">
@@ -48,7 +48,7 @@
     //// TESTING
     //////////////////////////////////////////////////////////////////////// -->
 
-    <target name="testing" depends="unit-tests">
+    <target name="testing" depends="unit-tests" />
 
     <target name="unit-tests" description="Running unit tests with PHPUnit">
         <exec executable="vendor/bin/phpunit">
