@@ -24,6 +24,10 @@ class DiscoverTest extends AbstractCreditCardNumberValidatorTestCase
     protected function getInvalidNumbers() : array
     {
         return array_merge(
+            [
+                '06011111111111117', // prefix digit
+                '60111111111111170', // suffix digit
+            ],
             $this->getAmericanExpressNumbers(),
             $this->getAustralianBankCardNumbers(),
             $this->getDinersClubNumbers(),
