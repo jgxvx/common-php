@@ -1,16 +1,17 @@
 <?php
-
+declare(strict_types=1);
 namespace Jgxvx\Common\Validator\Hash;
 
 use Jgxvx\Common\Validator\Hash\Sha1 as Validator;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 
-class Sha1Test extends \PHPUnit_Framework_TestCase
+#[CoversClass(Validator::class)]
+final class Sha1Test extends \PHPUnit\Framework\TestCase
 {
 
-    /**
-     * @test
-     */
-    public function validHashes()
+    #[Test]
+    public function validHashes(): void
     {
         $v = new Validator();
 
@@ -35,10 +36,8 @@ class Sha1Test extends \PHPUnit_Framework_TestCase
         $this->assertTrue($v->isValid('5F65036B761384F2F6955F55AB01F5AB8AF1AE85'));
     }
 
-    /**
-     * @test
-     */
-    public function invalidHashes()
+    #[Test]
+    public function invalidHashes(): void
     {
         $v = new Validator();
 

@@ -1,17 +1,20 @@
 <?php
-
+declare(strict_types=1);
 namespace Jgxvx\Common\Validator\CreditCardNumber;
 
-class AmericanExpressTest extends AbstractCreditCardNumberValidatorTestCase
+use PHPUnit\Framework\Attributes\CoversClass;
+
+#[CoversClass(AmericanExpress::class)]
+final class AmericanExpressTest extends AbstractCreditCardNumberValidatorTestCase
 {
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->validator = new AmericanExpress();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->validator = null;
         parent::tearDown();

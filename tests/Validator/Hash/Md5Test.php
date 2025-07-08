@@ -1,16 +1,17 @@
 <?php
-
+declare(strict_types=1);
 namespace Jgxvx\Common\Validator\Hash;
 
 use Jgxvx\Common\Validator\Hash\Md5 as Validator;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 
-class Md5Test extends \PHPUnit_Framework_TestCase
+#[CoversClass(Validator::class)]
+final class Md5Test extends \PHPUnit\Framework\TestCase
 {
 
-    /**
-     * @test
-     */
-    public function validHashes()
+    #[Test]
+    public function validHashes(): void
     {
         $v = new Validator();
 
@@ -25,10 +26,8 @@ class Md5Test extends \PHPUnit_Framework_TestCase
         $this->assertTrue($v->isValid('20B2DCCB6AFF8DB0EBDC44CDDB48D4EC'));
     }
 
-    /**
-     * @test
-     */
-    public function invalidHashes()
+    #[Test]
+    public function invalidHashes(): void
     {
         $v = new Validator();
 

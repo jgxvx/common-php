@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Jgxvx\Common\Validator\CreditCardNumber;
 
 /**
@@ -7,7 +7,7 @@ namespace Jgxvx\Common\Validator\CreditCardNumber;
  *
  * @link https://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm
  */
-abstract class AbstractCreditCardNumberValidatorTestCase extends \PHPUnit_Framework_TestCase
+abstract class AbstractCreditCardNumberValidatorTestCase extends \PHPUnit\Framework\TestCase
 {
 
     /** @var AbstractValidator */
